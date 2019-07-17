@@ -1,100 +1,117 @@
-// function onClientLoad() {
-//     gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
-// }
-//
-// function onYouTubeApiLoad() {
-//     gapi.client.setApiKey('AIzaSyAockgrHGPhMly9fx7v9vSyWvpeRhygb5o');
-// }
-
-
-
+// Get and display movie info
 function makeMovieRequest() {
 var movieName = document.getElementById("movie-name").value;
 
-  if (movieName === "") {
-    alert("You didn't enter a movie name!");
-    return;
-  }
+if (movieName === "") {
+  alert("You didn't enter a movie name!");
+  return;
+}
 
 var query =
-  "http://www.omdbapi.com/?i=tt3896198&apikey=aa61b30a&t=" + movieName;
-
+  "https:/www.myapifilms.com/imdb/idIMDB?title=" + movieName + "&token=b195f179-9b26-43b2-9d5d-862f50c35050&format=json&language=en-us&trailers=1&filmingLocations=1"
 query = query.replace(/ /g, "+");
 
 request = new XMLHttpRequest();
 request.open("GET", query, true);
-request.onload = processData;
-request.onload = keyWordsearch;
+request.onload = processMovieData;
+// request.onload = openMap;
 request.send();
 }
 
-
-function processData() {
-// get all movie data
+function processMovieData() {
 var movieTitle = JSON.parse(request.responseText);
+var movieInfo = movieTitle.data.movies[0];
 
-// movie title
-document.getElementById("showTitle").innerHTML = movieTitle.Title;
-// movie genre
-document.getElementById("showGenre").innerHTML = movieTitle.Genre;
-// rating, runtime, release
-document.getElementById("showInfo").innerHTML = "Rated: " + movieTitle.Rated + ", " + movieTitle.Runtime + ", " + "Released: " + movieTitle.Year;
-// movie poster
-document.getElementById("showPoster").src = movieTitle.Poster;
-// movie summary
-document.getElementById("showSummary").innerHTML = movieTitle.Plot;
+document.getElementById("showTitle").innerHTML = movieInfo.title;
 
-// movie trailer
-// const movieTrailer = require('movie-trailer');
-// var trailerURL = movieTrailer(movieName).then(console.log)
-// document.getElementById("showTrailer").src = trailerURL;
+// var listGenres = movieInfo.genres[0];
+// for (i = 0; i < listGenres.length; i++)
+//   document.getElementById("showGenre").innerHTML += movieInfo.genres[i];
+
+document.getElementById("showInfo").innerHTML = "Rated: " + movieInfo.rated + ", " + movieInfo.runtime + ", " + "Released: " + movieInfo.year;
+document.getElementById("showPoster").src = movieInfo.urlPoster;
+
+document.getElementById("showSummary").innerHTML = movieInfo.simplePlot;
+
+// document.getElementById("showTrailer").className = "show";
+document.getElementById("showTrailer").src = movieInfo.trailer.qualities[0].videoURL;
+
+if (movieInfo.filmingLocations[0].location === "") { document.getElementById("showLocation").innerHTML = "No location found";
+} else {
+document.getElementById("showLocation").innerHTML = movieInfo.filmingLocations[0].location;
 }
 
-// var movieTrailer = "https://www.youtube.com/embed/" + trailerID;
+openCordData();
+}
 
-// YT data api code
-// AIzaSyAockgrHGPhMly9fx7v9vSyWvpeRhygb5o
 
-// function search() {
-//     var request = gapi.client.youtube.search.list({
-//         part: 'snippet',
-//         q:movieName
-//     });
-//     request.execute(onSearchResponse);
-// }
+
+
+// get map coordinates
+function openCordData() {
+var movieAddress = document.getElementById("showLocation").innerHTML;
+
+if (movieAddress === "No location found") {
+// show error on map
+document.getElementById("showCords").innerHTML = "Map Unavailable";
+} else {
+// need to delete name of location first
+movieAddress = movieAddress.split("- ").pop();
+
+var addQuery =
+  "https://www.mapquestapi.com/geocoding/v1/address?key=SJ4ZCUYnAgW7cXTqRSonL65wis7pNme7&inFormat=kvp&outFormat=json&location=" + movieAddress + "&thumbMaps=false"
+
+addQuery = addQuery.replace(/ /g, "+");
+addQuery = addQuery.replace(/, /g, "%2C");
+
+request = new XMLHttpRequest();
+request.open("GET", addQuery, true);
+request.onload = processCoords;
+request.send();
+}
+}
+
+function processCoords() {
+var mapData = JSON.parse(request.responseText);
+var addCords = mapData.results[0].locations[0].latLng;
+
+var addLat = addCords.lat;
+var addLng = addCords.lng;
+
+// document.getElementById("showCords").innerHTML = addLat + ", " + addLng;
+
+// L.mapquest.key = 'SJ4ZCUYnAgW7cXTqRSonL65wis7pNme7';
 //
-// function onSearchResponse(response) {
-// // function onSearchResponse(response) {
-//     var responseString = JSON.stringify(response, '', 2);
-//     document.getElementById('showTrailer').src = responseString;
-// }
+// var map = L.mapquest.map('map', {
+//   center: [addLat, addLng],
+//   layers: L.mapquest.tileLayer('map'),
+//   zoom: 12
+// });
+//
+// map.addControl(L.mapquest.control());
 
 
+var mymap = L.map('map').setView([addLat, addLng], 13);
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'SJ4ZCUYnAgW7cXTqRSonL65wis7pNme7'
+}).addTo(mymap);
 
-function keyWordsearch(){
-        gapi.client.setApiKey('AIzaSyAockgrHGPhMly9fx7v9vSyWvpeRhygb5o');
-        gapi.client.load('youtube', 'v3', function() {
-                makeRequest();
-        });
 }
-    function makeRequest() {
-        var q = $('#movie-name').val();
-        // var q = "Finding Nemo
-        var request = gapi.client.youtube.search.list({
-                q: q,
-                part: 'snippet',
-                maxResults: 10
-        });
-        request.execute(function(response)  {
-                // $('#results').empty()
-                var srchItems = response.result.items;
-                $.each(srchItems, function(index, item) {
-                // vidTitle = item.snippet.title;
-                // vidThumburl =  item.snippet.thumbnails.default.url;
-                vidID = item.id.videoId
-                // vidThumbimg = '<pre><img id="thumb" src="'+vidThumburl+'" alt="No  Image Available." style="width:204px;height:128px"></pre>';
 
-                $('#showTrailer').src=("https://www.youtube.com/embed/" + vidID);
-        })
-    })
-}
+
+
+// make map
+function openMap() {
+        // L.mapquest.key = 'SJ4ZCUYnAgW7cXTqRSonL65wis7pNme7';
+        //
+        // var map = L.mapquest.map('map', {
+        //   center: [addLat, addLng],
+        //   layers: L.mapquest.tileLayer('map'),
+        //   zoom: 12
+        // });
+        //
+        // map.addControl(L.mapquest.control());
+      }
