@@ -1,9 +1,78 @@
-/* .hidden {
-  visibility: hidden;
+/* .hide {
+  display: hidden;
 }
 
 .show {
-  visibility: visible;
+  display: block;
 } */
 
-#map { height: 180px; }
+body {
+      margin-left: 100px;
+      margin-right: 150px;
+      margin-top: 100px;
+      margin-bottom: 100px;
+}
+
+img {
+  float: left;
+  width: 35%;
+  height: 35%;
+  margin-right: 0;
+  margin-bottom: 100px;
+}
+
+.words {
+  padding-left: 5%;
+  margin-bottom: 0px;
+}
+
+#showTitle {
+  font-size: 40px;
+  margin-top: 0px;
+  overflow: auto;
+}
+
+#showInfo {
+  font-size: 22px;
+  margin-top: 15px;
+  overflow: auto;
+}
+
+#showSummary {
+  font-size: 18px;
+  margin-right: 40px;
+  overflow: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  margin-top: 20px;
+  flex: 50%;
+  /* padding: 5%; */
+  margin-bottom: 0px;
+  margin-left: 20px;
+}
+
+#showTrailer {
+  padding-left: 10%;
+  margin-left: 0;
+  width: 85%;
+  height: 100%;
+  margin-bottom: 0px;
+  margin-right: 0;
+}
+
+#showLocation {
+  display: none;
+}
+
+#googleMap {
+  /* float: right; */
+  margin-top: 0;
+  margin-left: 0px;
+  height: 250%;
+  width: 90%;
+}
