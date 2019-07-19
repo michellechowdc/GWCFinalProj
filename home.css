@@ -25,8 +25,11 @@ scroll-page {
  font-weight: 100;
 }
 .main {
- background: hsl(308, 41%, 69%);
+ /* background: hsl(308, 41%, 69%); */
  margin: auto;
+ background: linear-gradient(to bottom right, #23A6D5, #E73C7E 85%);
+ background-repeat: no-repeat;
+
 }
 #page-Movies {
  background-size: cover;
@@ -61,6 +64,7 @@ scroll-page {
 }
 .carousel-inner {
 image-rendering: pixelated;
+margin-bottom: 0;
 }
 textarea {
  position: relative;
