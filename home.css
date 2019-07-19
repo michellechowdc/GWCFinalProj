@@ -1,0 +1,72 @@
+h1{
+   color: black;
+   font-family: "Comic Sans MS", cursive, sans-serif;
+   font-size: 100px;
+   letter-spacing: 10px;
+   text-align: center;
+   font-weight: bold;
+   padding-bottom: 100px;
+}
+scroll-container {
+ display: block;
+ margin: 0;
+}
+scroll-page {
+ display: flex;
+ align-items: baseline;
+ justify-content: center;
+ height: 700%;
+ font-size: 5em;
+ overflow: auto;
+ font-family: cursive;
+ color: rgb(245, 206, 66);
+ letter-spacing: 50px;
+ font-style: italic;
+ font-weight: 100;
+}
+.main {
+ background: hsl(308, 41%, 69%);
+ margin: auto;
+}
+#page-Movies {
+ background-size: cover;
+ height: 700px;
+}
+.andom {
+ background-color: lightblue;
+ margin:auto;
+}
+#page-Random {
+ position: relative;
+ top: 20px;
+ height: 700px;
+}
+.hatever{
+ background-color: hotpink;
+ margin: auto;
+}
+#page-Whatever {
+ position: auto;
+ top: 200px;
+ height: 700px;
+}
+.ction{
+ background-color: blue;
+ margin: auto;
+}
+#page-Action {
+ position: auto;
+ /* top: 200px; */
+ height: 700px;
+}
+.carousel-inner {
+image-rendering: pixelated;
+}
+textarea {
+ position: relative;
+ left: 800px;
+}
+#movieButton {
+ position:relative;
+ left:800px;
+}
