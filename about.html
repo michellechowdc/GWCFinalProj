@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>About - Rotten Potatoes</title>
+    <link rel="stylesheet" href="about.css"/>
+    <script type="text/javascript" src="about.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <body>
+    <!-- navigation bar -->
+       <div class="topnav">
+         <a href="#" onclick="openHome()">Home</a>
+         <a href="#" onclick="openMovies()">Movies</a>
+         <a href="#" onclick="openReviews()">Reviews</a>
+         <a href="#" onclick="openAbout()">About</a>
+
+         <p id="title">Rotten Potatoes</p>
+
+         <div class="searchContainer">
+             <img id="searchButton" src="https://image.flaticon.com/icons/png/512/63/63322.png" type="submit" onclick="newInput()">
+             <input id="movie-name" type="text" placeholder="Search a movie" name="search">
+         </div>
+       </div>
+
+    <!-- top picture -->
+    <!-- <div id="content">
+      <img src="https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" id="topPic">
+    </div> -->
+    <!-- <div id="content"> -->
+      <div class="parallax1"></div>
+
+      <div id="about">
+        <h3 id="aboutTitle">About</h3>
+        <p id="aboutText">Rotten Potatoes gives you quality movie reviews and informative resources to help <b>you</b> decide if you want to watch a movie or not!<br>May we be your guide. May Rotten Potatoes be with you.</br></p>
+      </div>
+
+      <div class="parallax2"></div>
+
+      <div id="aboutUs">
+        <h3 id="usTitle">Courtesy of:</h3>
+
+          <div class="row">
+            <div align="center" class="column">
+              <img src="doggo.jpg">
+              <!-- <h2 id="name">Michelle</h2> -->
+              <p id="bio">Michelle Chow, a rising junior at Alameda Science and Technology Institute and a lover of dogs, dance, and code! In the future she hopes work at a Space agency to get to Mars :)</p>
+            </div>
+            <div align="center" class="column">
+              <img id="pic2" src="hyena.jpg">
+              <!-- <h2 id="name">Chisom</h2> -->
+              <p id="bio">Chisom Osuji, a 17 years old and a soon to be Girls Who Code alumni. She attend San Leandro High School and her favorite food is every food. She enjoy solving problems and making things with her hands. For more information, add her on LinkedIn: Chisom Osuji.</p>
+            </div>
+            <div align="center" class="column">
+              <img id="pic3" src="puppo.png">
+              <!-- <h2 id="name">Sharona</h2> -->
+              <p id="bio">Sharona Yang, a rising junior at Mission San Jose High School, which is located in Fremont. She loves spending time outdoors and playing badminton.</p>
+            </div>
+          </div>
+      </div>
+
+      <div id="footer"></div>
+  </body>
+</html>
