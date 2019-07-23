@@ -1,0 +1,93 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+.checked {
+ color: orange;
+}
+.unchecked {
+    color: white;
+}
+.star{
+ margin-top: 80px;
+}
+.review{
+ padding-left: 7px;
+ padding-right: 7px;
+ margin-top: 150px;
+/*  margin-left: 10px;
+ margin-right: 10px; */
+ color: white;
+ font-size: 20px;
+ position: relative;
+ left: 50%;
+ top: 10%;
+ transform: translate(-50%, -50%);
+ text-align: center;
+}
+.container {
+ position: relative;
+ width: 100%;
+}
+.image {
+ display: block;
+ width: 100%;
+ height: auto;
+}
+.overlay {
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ height: 100%;
+ width: 100%;
+ opacity: 0;
+ transition: .5s ease;
+ background-color: #000000;
+}
+.container:hover .overlay {
+ opacity: 0.8;
+}
+.text {
+ color: white;
+ font-size: 30px;
+ position: relative;
+ left: 50%;
+ top: 20%;
+ /*
+ -webkit-transform: translate(-50%, -50%);
+ -ms-transform: translate(-50%, -50%); */
+ transform: translate(-50%, -50%);
+ text-align: center;
+/* }
+{ */
+ box-sizing: border-box;
+}
+body {
+ margin: 0;
+ font-family: Times;
+ background-color: #000000;
+}
+/* Create two equal columns that floats next to each other */
+.column {
+ float: left;
+ width: 25%;
+ padding: 10px;
+}
+.column img {
+ margin-top: 12px;
+ column-gap: 20px;
+}
+/* Clear floats after the columns */
+.row:after {
+ content: "";
+ display: table;
+ clear: both;
+}
+span.stars, span.stars span {
+   display: block;
+   background: url(potato.png) 0 -16px repeat-x;
+   width: 80px;
+   height: 16px;
+}
+span.stars span {
+   background-position: 0 0;
+}

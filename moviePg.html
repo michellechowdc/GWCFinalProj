@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+ <head>
+     <script src="moviePg.js" type="text/javascript"></script>
+     <link rel="stylesheet" href="moviePg.css"/>
+     <title>Movies - Rotten Potatoes</title>
+
+     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+ </head>
+ <body onload="makeMovieRequest()">
+
+<!-- navigation bar -->
+   <div class="topnav">
+     <a href="#" onclick="openHome()">Home</a>
+     <a href="#" onclick="openMovies()">Movies</a>
+     <a href="#" onclick="openReviews()">Reviews</a>
+     <a href="#" onclick="openAbout()">About</a>
+
+     <p id="title">Rotten Potatoes</p>
+
+     <div class="searchContainer">
+         <img id="searchButton" src="https://image.flaticon.com/icons/png/512/63/63322.png" type="submit" onclick="newInput()">
+         <input id="movie-name" type="text" placeholder="Search a movie" name="search">
+     </div>
+   </div>
+
+<!-- movie content -->
+<div id="movieContent">
+   <img id="showPoster" class = "hide" src = "">
+
+   <p1 id="showTitle" class = "words hide"></p1>
+   <p id="showGenre"class = "words"></p>
+   <p id="showInfo" class = "words"></p>
+   <p id="showSummary" class = "words"></p>
+
+   <div class="row">
+     <div class = "column">
+       <p id="trailerText"></p>
+       <video id="showTrailer" class = "hide" controls width="85%" height="100%">
+         <source src="">
+       </video>
+     </div>
+
+     <div class = "column">
+       <p id="showLocation"></p>
+       <iframe id="googleMap" class = "column" width="600" height="450" frameborder="0" style="border:0" src=""></iframe>
+     </div>
+    </div>
+ </div>
+
+ </body>
+</html>

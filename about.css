@@ -1,0 +1,213 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+
+  /* EDIT^^^^ */
+}
+
+/* navigation bar */
+.topnav {
+  background-color: black;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.topnav a {
+  padding: 14px 16px;
+  color: white;
+  margin-left: 7px;
+  float: left;
+  font-size: 18px;
+  margin-right: 0;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.searchContainer{
+  margin: 0;
+  padding: 0;
+  margin-top: 6px;
+}
+
+#movie-name {
+  margin-left: 0;
+  position: relative;
+  top: 10px;
+  margin-right: 7px;
+  float: right;
+}
+
+#searchButton {
+  position:relative;
+  height: 2%;
+  width: 2%;
+  filter: invert(1);
+  top: 15px;
+  margin-right: 15px;
+  float: right;
+  margin-left: 0;
+  margin-top: -3px;
+}
+
+
+
+/* content */
+/* #content {
+  display: flex;
+  justify-content: center;
+}
+
+#topPic {
+  margin-top: 85px;
+  width: 75%;
+  height: 75%;
+
+  display: block;
+  position: absolute;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 10;
+} */
+
+/* #topPic {
+  height: 75%;
+} */
+body, html {
+  height: 100%;
+}
+
+#content {
+  /* display: flex;
+  justify-content: center; */
+  /* width: 80%; */
+}
+
+.parallax1 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: white; */
+
+  background-image: url('screenshot1.png');
+  margin-top: 85px;
+  filter: opacity(50%);
+  /* filter: brightness(130%); */
+  width: 100%;
+  height: 70%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+#about {
+  margin: 0;
+  padding: 0;
+  height:290px;
+  background-color:black;
+}
+
+#aboutTitle {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+#aboutText {
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 200;
+  padding: 0px 60px;
+  letter-spacing: 1px;
+}
+
+.parallax2 {
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  filter: blur(2px);
+  height: 70%;
+}
+
+#aboutUs {
+  margin: 0;
+  padding: 0;
+  height:400px;
+  background-color:black;
+}
+
+#usTitle {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+  font-size: 45px;
+  color: white;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 0;
+  height: 300px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#name {
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 26px;
+}
+
+#bio {
+  padding: 10px 90px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+#footer {
+  height: 250px;
+  background-color: black;
+}
+
+#title {
+  padding: 0px 16px;
+  color: white;
+  margin-left: 100px;
+  float: left;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+}
+
+#pic2 {
+  height: 80%;
+  width: 80%;
+}
+
+#pic3 {
+  height: 80%;
+  width: 80%;
+}
